@@ -8,7 +8,7 @@ public class personaje3 implements Runnable{
     JLabel personaje;
     JLabel labelFinal;
 
-    public static int lugar;
+
     public personaje3 (String nombre, JLabel personaje, JLabel labelFinal){
         this.nombre= nombre;
         this.labelFinal=labelFinal;
@@ -21,7 +21,7 @@ public class personaje3 implements Runnable{
     public void  run(){
         int retardo;
         try{
-            lugar=1;
+
             retardo = (int)(Math.random()*15)+1;
             labelFinal.setVisible(false);
             personaje.setVisible(true);
@@ -32,8 +32,8 @@ public class personaje3 implements Runnable{
             }
             personaje.setVisible(false);
             labelFinal.setVisible(true);
-            labelFinal.setText(nombre + "Ha llegado en la posición "+ lugar);
-            lugar ++;
+            labelFinal.setText(nombre + ", ha llegado en la posición: "+ PosicionLlegada.obtenerLugar());
+
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

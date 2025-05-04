@@ -1,5 +1,6 @@
 package Vista;
 
+import Hilos.PosicionLlegada;
 import Hilos.personaje1;
 import Hilos.personaje2;
 import Hilos.personaje3;
@@ -14,7 +15,7 @@ public class vista extends JFrame {
         super("Carrera de leyendas");
         JLabel yoshi,kratos,sonic, yoshi_pos, kratos_pos, sonic_pos;
         JButton iniciarCarrera;
-        setSize(500, 300);
+        setSize(600, 310);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
@@ -25,41 +26,42 @@ public class vista extends JFrame {
         ImageIcon Icon_yoshi = new ImageIcon(image_yoshi.getScaledInstance(50, 50, Image.SCALE_DEFAULT));
         yoshi=new JLabel();
         yoshi.setIcon(Icon_yoshi);
-        yoshi.setBounds(50, 50 , 50 ,50);
+        yoshi.setBounds(50, 50 , 80 ,80);
 
         // Parametros de Kratos
         Image image_kratos= new ImageIcon("src/Img/Kratos.gif").getImage();
         ImageIcon Icon_kratos = new ImageIcon(image_kratos.getScaledInstance(60, 70, Image.SCALE_DEFAULT));
         kratos=new JLabel();
         kratos.setIcon(Icon_kratos);
-        kratos.setBounds(50, 100 , 50 ,50);
+        kratos.setBounds(50, 100 , 80 ,80);
 
         // Parametros de Sonic.exe
         Image image_sonic= new ImageIcon("src/Img/Sonic-exe.gif").getImage();
         ImageIcon Icon_sonic = new ImageIcon(image_sonic.getScaledInstance(60, 70, Image.SCALE_DEFAULT));
         sonic=new JLabel();
         sonic.setIcon(Icon_sonic);
-        sonic.setBounds(50, 150 , 50 ,50);
+        sonic.setBounds(50, 150 , 80 ,80);
 
         // Parametros para las etiquetas
         // Yoshi
         yoshi_pos= new JLabel();
-        yoshi_pos.setBounds(50,50,50,50);
+        yoshi_pos.setBounds(10,50,200,30);
 
         // Kratos
         kratos_pos= new JLabel();
-        kratos_pos.setBounds(50,100,50,50);
+        kratos_pos.setBounds(10,100,200,30);
         // SONIC
         sonic_pos= new JLabel();
-        sonic_pos.setBounds(50,150,50,50);
+        sonic_pos.setBounds(10,150,220,30);
 
         // Boton de inicio
         iniciarCarrera = new JButton("Iniciar Carrera");
-        iniciarCarrera.setBounds(150, 200, 150, 50);
+        iniciarCarrera.setBounds(220, 230, 150, 30);
 
         iniciarCarrera.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PosicionLlegada.reiniciar();
                 personaje1 tyoshi = new personaje1("Yoshi", yoshi,yoshi_pos);
                 personaje2 tkratos= new personaje2("Kratos", kratos, kratos_pos);
                 personaje3 tsonic= new personaje3("Sonic.exe", sonic, sonic_pos);
